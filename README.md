@@ -2,6 +2,14 @@
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Gudapavansai/EatoesAdimpage)
 
+## 🌐 Live Demo
+
+**Live Application:** [https://eatoesadimpage-10.onrender.com/api](https://eatoesadimpage-10.onrender.com/api)
+
+> **Note:** The application is deployed on Render's free tier, so it may take a moment to wake up on first visit.
+
+## 📖 Overview
+
 A robust, full-stack restaurant management and administration platform built using the MERN stack (MongoDB, Express, React, Node.js). This application addresses the core needs of a modern restaurant, from menu management to order tracking and point-of-sale operations.
 
 ## 🚀 Features
