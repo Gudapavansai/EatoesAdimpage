@@ -118,10 +118,6 @@ Before running the application, ensure you have the following installed:
 **Challenge:** Changing the status of older orders failed because they didn't meet new, stricter schema validation rules (e.g., missing specific field data).
 **Solution:** Refactored the backend controller to use `findByIdAndUpdate` instead of `doc.save()`. This allows partial updates (like just changing the status) without triggering full-document validation errors on unrelated legacy fields.
 
-### 3. Missing Images in Modals
-**Challenge:** The specific "View Order" modal wasn't displaying food images, making the UI look broken.
-**Solution:** Debugged the Mongoose query and discovered the `imageUrl` field wasn't being populated. Updated the controller to explicitly populate `name price imageUrl`, ensuring rich visual data is always available.
-
 ## 📸 Screenshots
 
 ### 📊 Dashboard Overview
