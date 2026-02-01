@@ -1,5 +1,7 @@
 # Eatoes Admin Dashboard
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Gudapavansai/EatoesAdimpage)
+
 A robust, full-stack restaurant management and administration platform built using the MERN stack (MongoDB, Express, React, Node.js). This application addresses the core needs of a modern restaurant, from menu management to order tracking and point-of-sale operations.
 
 ## 🚀 Features
