@@ -130,4 +130,11 @@ Before running the application, ensure you have the following installed:
 
 ## 📸 Screenshots
 
+### 📊 Dashboard Overview
+![Dashboard](screenshots/dashboard.png)
 
+### 🍔 Menu Management
+![Menu Management](screenshots/menu_management.png)
+
+### 🖥️ Point of Sale (POS)
+![POS](screenshots/pos.png)
