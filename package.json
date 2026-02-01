@@ -1,0 +1,20 @@
+{
+    "name": "restaurant-app",
+    "version": "1.0.0",
+    "description": "Restaurant Management Application",
+    "scripts": {
+        "start": "cd server && npm start",
+        "dev": "cd server && npm run dev",
+        "install:server": "cd server && npm install",
+        "install:client": "cd client && npm install",
+        "build:client": "cd client && npm run build",
+        "install:all": "npm run install:server && npm run install:client"
+    },
+    "keywords": [
+        "restaurant",
+        "management",
+        "pos"
+    ],
+    "author": "",
+    "license": "ISC"
+}
