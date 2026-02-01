@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useFetch } from '../hooks/useFetch';
-import { Award, Clock, DollarSign, Loader, ShoppingBag, CheckCircle } from 'lucide-react';
+import { Award, Clock, DollarSign, Loader, ShoppingBag, CheckCircle, XCircle } from 'lucide-react';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
@@ -54,7 +54,6 @@ const Dashboard = () => {
       case 'Preparing': return 'bg-blue-100 text-blue-800';
       case 'Ready': return 'bg-purple-100 text-purple-800';
       case 'Served': return 'bg-green-100 text-green-800';
-      case 'Delivered': return 'bg-green-100 text-green-800';
       case 'Cancelled': return 'bg-red-100 text-red-800';
       default: return 'bg-gray-100 text-gray-800';
     }
@@ -108,7 +107,6 @@ const Dashboard = () => {
                 <option value="Pending">Pending</option>
                 <option value="Preparing">Preparing</option>
                 <option value="Ready">Ready</option>
-                <option value="Delivered">Delivered</option>
                 <option value="Cancelled">Cancelled</option>
             </select>
           </div>
@@ -167,19 +165,24 @@ const Dashboard = () => {
                       </span>
                     </td>
                     <td className="px-6 py-4">
-                      <div className="flex items-center space-x-2">
-                            <select 
-                            value={order.status}
-                            onChange={(e) => updateStatus(order._id, e.target.value)}
-                            className="text-sm border-gray-300 rounded-md border p-1"
-                            >
-                            <option value="Pending">Pending</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Ready">Ready</option>
-                            <option value="Served">Served</option>
-                            <option value="Delivered">Delivered</option>
-                            <option value="Cancelled">Cancelled</option>
-                            </select>
+                      <div className="flex items-center space-x-3">
+                            {order.status === 'Served' ? (
+                                <CheckCircle className="text-green-600 w-5 h-5" />
+                            ) : order.status === 'Cancelled' ? (
+                                <XCircle className="text-red-600 w-5 h-5" />
+                            ) : (
+                                <select 
+                                value={order.status}
+                                onChange={(e) => updateStatus(order._id, e.target.value)}
+                                className="text-sm border-gray-300 rounded-md border p-1"
+                                >
+                                <option value="Pending">Pending</option>
+                                <option value="Preparing">Preparing</option>
+                                <option value="Ready">Ready</option>
+                                <option value="Served">Served</option>
+                                <option value="Cancelled">Cancelled</option>
+                                </select>
+                            )}
                         <button 
                             onClick={() => setSelectedOrder(order)}
                             className="text-indigo-600 hover:text-indigo-800 text-sm font-medium"
