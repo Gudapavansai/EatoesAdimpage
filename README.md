@@ -30,7 +30,7 @@ A robust, full-stack restaurant management and administration platform built usi
 - **Frontend**: React.js (Vite), Tailwind CSS, Lucide React (Icons), Axios.
 - **Backend**: Node.js, Express.js.
 - **Database**: MongoDB (Mongoose ODM).
-- **Tools**: Postman (Testing), Git (Version Control).
+- **Tools**: Postman (Testing), Git (Version Control) Netfiy, Render.
 
 ## 📋 Prerequisites
 
@@ -127,4 +127,4 @@ Before running the application, ensure you have the following installed:
 *(Add screenshots of your Dashboard, POS, and Menu pages here)*
 
 ---
-Developed with ❤️ by Pavan Sai
+
