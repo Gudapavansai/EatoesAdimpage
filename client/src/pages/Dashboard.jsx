@@ -154,9 +154,21 @@ const Dashboard = () => {
                     <td className="px-6 py-4 text-sm text-gray-500 font-mono">#{order._id.slice(-6)}</td>
                     <td className="px-6 py-4 text-sm font-medium text-gray-900">{order.tableNumber}</td>
                     <td className="px-6 py-4 text-sm text-gray-600">
-                      {order.items.map(i => (
-                        <div key={i._id}>{i.menuItem?.name} x{i.quantity}</div>
-                      ))}
+                      <div className="flex flex-col gap-2">
+                        {order.items.map(i => (
+                          <div key={i._id} className="flex items-center gap-2">
+                            {i.menuItem?.imageUrl && (
+                              <img 
+                                src={i.menuItem.imageUrl} 
+                                alt={i.menuItem.name}
+                                className="w-8 h-8 rounded object-cover"
+                                onError={(e) => { e.target.style.display = 'none'; }}
+                              />
+                            )}
+                            <span>{i.menuItem?.name || 'Unknown'} x{i.quantity}</span>
+                          </div>
+                        ))}
+                      </div>
                     </td>
                     <td className="px-6 py-4 text-sm font-bold text-gray-900">${order.totalAmount}</td>
                     <td className="px-6 py-4">
