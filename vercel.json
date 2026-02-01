@@ -1,6 +1,11 @@
 {
     "buildCommand": "cd client && npm install && npm run build",
     "outputDirectory": "client/dist",
+    "build": {
+        "env": {
+            "VITE_API_URL": "https://eatoesadimpage-10.onrender.com/api"
+        }
+    },
     "rewrites": [
         {
             "source": "/(.*)",

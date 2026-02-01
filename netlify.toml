@@ -3,6 +3,9 @@
   publish = "dist"
   command = "npm install && npm run build"
 
+[build.environment]
+  VITE_API_URL = "https://eatoesadimpage-10.onrender.com/api"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
