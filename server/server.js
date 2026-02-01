@@ -8,7 +8,8 @@ const analyticsRoutes = require('./routes/analyticsRoutes');
 
 dotenv.config();
 
-connectDB();
+const MONGO_URI = process.env.MONGODB_URI || "mongodb+srv://RestaurantAdminDashboard_db_user:RestaurantAdminDashboard@cluster0.lym6kdt.mongodb.net/?appName=Cluster0";
+connectDB(MONGO_URI);
 
 const app = express();
 
