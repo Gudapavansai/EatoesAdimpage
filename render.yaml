@@ -11,7 +11,7 @@ services:
       - key: PORT
         value: 10000
       - key: MONGODB_URI
-        sync: false # You will set this in the Render Dashboard
+        value: mongodb+srv://RestaurantAdminDashboard_db_user:RestaurantAdminDashboard@cluster0.lym6kdt.mongodb.net/?appName=Cluster0
 
   # Frontend (Vite/React)
   - type: static
