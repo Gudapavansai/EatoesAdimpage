@@ -87,11 +87,11 @@ const POS = () => {
   };
 
   return (
-    <div className="flex h-[calc(100vh-theme(spacing.16))] h-screen pt-4 pb-4 pl-4 pr-0 gap-4">
+    <div className="flex flex-col md:flex-row h-screen pt-4 pb-4 px-4 gap-4 overflow-hidden">
         {/* Menu Selection Area */}
-        <div className="flex-1 overflow-y-auto pr-2">
-            <div className="mb-6 sticky top-0 bg-gray-50 pt-2 pb-4 z-10 mx-4">
-                <h1 className="text-3xl font-bold text-gray-900 mb-4">New Order (POS)</h1>
+        <div className="flex-1 overflow-y-auto pr-0 md:pr-2 pb-20 md:pb-0">
+            <div className="mb-6 sticky top-0 bg-gray-50 pt-2 pb-4 z-10 mx-0 md:mx-4">
+                <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 pl-8 md:pl-0">New Order (POS)</h1>
                 <div className="relative">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
                     <input 
@@ -104,7 +104,7 @@ const POS = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 pb-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pb-20 md:pb-20">
                 {loading ? (
                     <div className="col-span-full text-center py-12">Loading menu...</div>
                 ) : filteredItems.map(item => (
@@ -141,14 +141,21 @@ const POS = () => {
         </div>
 
         {/* Cart Sidebar */}
-        <div className="w-[350px] bg-white border-l border-gray-200 flex flex-col h-full shadow-xl fixed right-0 top-0 bottom-0 z-40 sm:relative sm:z-0">
-            <div className="p-6 border-b border-gray-200 bg-white">
-                <h2 className="text-xl font-bold flex items-center text-gray-900">
-                    <ShoppingCart className="mr-2" /> Current Order
+        <div className="w-full md:w-[350px] bg-white border-l border-gray-200 flex flex-col shadow-xl fixed md:relative bottom-0 left-0 right-0 z-40 h-[30vh] md:h-full rounded-t-xl md:rounded-none transition-all duration-300 transform translate-y-0">
+            <div className="p-4 md:p-6 border-b border-gray-200 bg-white flex justify-between items-center rounded-t-xl md:rounded-none cursor-pointer md:cursor-default" onClick={() => document.getElementById('mobile-cart-content').classList.toggle('hidden')}>
+                <h2 className="text-lg md:text-xl font-bold flex items-center text-gray-900">
+                    <ShoppingCart className="mr-2" /> <span className="md:hidden">Order Items ({cart.length}) - Total: ${calculateTotal()}</span><span className="hidden md:inline">Current Order</span>
                 </h2>
+                <div className="md:hidden text-gray-500">
+                   ▲
+                </div>
             </div>
             
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div id="mobile-cart-content" className="hidden md:flex flex-col flex-1 h-full"> 
+            {/* On mobile this is initially hidden or toggled. For better UX, let's make it styled nicer in next iteration if needed, but for now specific h-full logic */}
+            {/* Actually, let's keep it simple: fully visible sidebar on desktop, collapsible bottom sheet on mobile */}
+            
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-white">
                 {cart.length === 0 ? (
                     <div className="flex flex-col items-center justify-center h-full text-gray-400">
                         <ShoppingCart size={48} className="mb-4 opacity-20" />
@@ -187,7 +194,7 @@ const POS = () => {
                 )}
             </div>
 
-            <div className="p-6 bg-gray-50 border-t border-gray-200">
+            <div className="p-4 md:p-6 bg-gray-50 border-t border-gray-200">
                 <div className="bg-white p-3 rounded-lg border border-gray-200 mb-4">
                     <label className="block text-xs font-semibold text-gray-500 uppercase mb-1">Table Number</label>
                     <input 
@@ -216,6 +223,7 @@ const POS = () => {
                         </>
                     ) : 'Place Order'}
                 </button>
+            </div>
             </div>
         </div>
     </div>
